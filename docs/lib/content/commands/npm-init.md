@@ -2,6 +2,10 @@
 title: npm-init
 section: 1
 description: Create a package.json file
+npm init <package-spec> (same as `npx <package-spec>)
+npm init <@scope> (same as `npx <@scope>/create`)
+
+aliases: create, innit
 ---
 
 ### Synopsis
@@ -17,6 +21,11 @@ package.
 which will be installed by [`npm-exec`](/commands/npm-exec), and then have its
 main bin executed -- presumably creating or updating `package.json` and
 running any other initialization-related operations.
+    npm init foo->npm exec create-foo
+npm init @usr/foo->npm exec @usr/create-foo
+npm init @usr->npm exec @usr/create
+npm init @usr@2.0.0->npm exec @usr/create@2.0.0
+npm init @usr/foo@2.0.0->npm exec @usr/create-foo@2.0.0
 
 The init command is transformed to a corresponding `npm exec` operation as
 follows:
